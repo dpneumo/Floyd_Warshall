@@ -1,6 +1,8 @@
 
 # Floyd_Warshall Algorithm
 
+**Background:**
+
 *Floyd-Warshall* is a recursive algorithm for finding the shortest path, if one exists, between each pair of nodes on a weighted graph. The graph can be directed or non-directed but must not have negative cycles. (The sum of the edge distances (weights) in a cycle must not be negative.)
 
 The algorithm uses a matrix ***dist*** of path distances between each pair of nodes. The matrix is initialized with infinity for the distance between all pairs. Then known distances are filled into the matrix.
@@ -20,3 +22,12 @@ which improves the distance estimate for the path from `node[i]` to `node[j]`.
 Cycling through all values for indices k, i, & j fills the matrix with the shortest path between each node pair. Note that if the distance from `node[i]` to `node [j]` equals the distance from `node[j]` to `node[i] ` the matrix is symmetric about the diagonal from `dist[0][0]` to `dist[n-1][n-1]` which allows additional optimization that is not used in this code.
 
 [Wikipedia reference.](https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm)
+
+**Demo:**
+
+A short demo of this implementation of the Floyd Warshall Algorithm is included in the demo folder.
+
+    cd FloydWarshall/demo
+    ruby runner.rb
+
+The structured data input and the cost matrix output will be shown. THis demo is taken from a portion of a solution to the [Advent of Code 2022 Day 16](https://adventofcode.com/2022) puzzle.

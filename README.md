@@ -3,7 +3,7 @@
 
 **Background:**
 
-*Floyd-Warshall* is a recursive algorithm for finding the shortest path, if one exists, between each pair of nodes on a weighted graph. The graph can be directed or non-directed but must not have negative cycles. (The sum of the edge distances (weights) in a cycle must not be negative.)
+*Floyd-Warshall* is a recursive algorithm for finding the shortest path, if one exists, between each pair of nodes on a weighted graph. The graph can be directed or non-directed but must not have negative cycles. That is, the sum of the edge distances (weights) in a cycle must not be negative.
 
 The algorithm uses a matrix ***dist*** of path distances between each pair of nodes. The matrix is initialized with infinity for the distance between all pairs. Then known distances are filled into the matrix.
 
@@ -12,8 +12,8 @@ For i & j in (0 .. n-1) where n is the number of nodes in the graph
  - `dist[i][i] = 0`  the shortest distance from a node to itself is `0`
  - `dist[[i][j] = known_pair_distance` for nearest neighbors
 
-For i,  j, k in (0 .. n-1) where n is the number of nodes in the graph
-k is the index of a possible intermediate step in the path from node[i] and node[j]
+For i, j, & k in (0 .. n-1) where n is the number of nodes in the graph,
+k is the index of a possible intermediate step in the path from node[i] to node[j]
 
     if dist[i][j] > dist[i][k] + dist [k][j]
     then dist[i][j] = dist[i][k] + dist [k][j]

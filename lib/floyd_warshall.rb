@@ -21,7 +21,7 @@ class FloydWarshall
     @dist
   end
 
-  def fwa_with_path_recovery
+  def fwa_trace
     fwa_setup
     nsize.times do |k|
       nsize.times do |i|
@@ -29,6 +29,35 @@ class FloydWarshall
           if @dist[i][j] > @dist[i][k] + @dist[k][j]
             @dist[i][j] = @dist[i][k] + @dist[k][j]
             @nxt[i][j]  = @nxt[i][k]
+          end
+        end
+      end
+    end
+    @dist
+  end
+
+  def fwa_undirected
+    fwa_setup
+    nsize.times do |k|  #via
+      nsize.times do |i|  #from
+        i.times do |j|  #to
+          if @dist[i][j] > @dist[i][k] + @dist[k][j]
+            @dist[i][j] = @dist[j][i] = @dist[i][k] + @dist[k][j]
+          end
+        end
+      end
+    end
+    @dist
+  end
+
+  def fwa_ut
+    fwa_setup
+    nsize.times do |k|
+      nsize.times do |i|
+        i.times do |j|
+          if @dist[i][j] > @dist[i][k] + @dist[k][j]
+            @dist[i][j] = @dist[j][i] = @dist[i][k] + @dist[k][j]
+            @nxt[i][j]  = @nxt[j][i]  = @nxt[i][k]
           end
         end
       end

@@ -32,4 +32,4 @@ A short demo of this implementation of the Floyd Warshall Algorithm is included 
     cd FloydWarshall/demo
     ruby runner.rb
 
-The structured data input and the cost matrix output will be shown. This demo is taken from a portion of a solution to the [Advent of Code 2022 Day 16](https://adventofcode.com/2022) puzzle.
+The structured data input, the cost matrix output, and the shortest path from node JJ to node HH are the output. This demo is taken from a portion of a solution to the [Advent of Code 2022 Day 16](https://adventofcode.com/2022) puzzle.

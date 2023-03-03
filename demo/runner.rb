@@ -12,9 +12,14 @@ class Runner
 
   def run
     @parser.show_data
-    cm =  @floyd_warshall.fwa
+
+    cm =  @floyd_warshall.fwa_trace
     puts "\nCost Matrix:"
     cm.each {|row| puts "#{row }" }
+
+    path = @floyd_warshall.path(9,7)
+    puts "\nShortest path from #{@nodes[9].vname} to #{@nodes[7].vname}:"
+    puts path.map {|ndx| @nodes[ndx].vname }.join(' -> ')
   end
 end
 

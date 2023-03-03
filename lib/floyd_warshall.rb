@@ -66,7 +66,7 @@ class FloydWarshall
   end
 
   def path(u, v)
-    return [] if @nxt[u][v] = nil
+    return [] if @nxt[u][v] == nil
     path = [u]
     while u != v
       u = @nxt[u][v]
@@ -84,6 +84,7 @@ private
       n.nbrs.each do |nbrinfo|
         v = @nodes.find {|n| n.vname == nbrinfo[0] }.ndx
         @dist[u][v] = nbrinfo[1]
+        @nxt[u][v] = v
       end
     end
     nsize.times do |v|

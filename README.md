@@ -21,7 +21,7 @@ which improves the distance estimate for the path from `node[i]` to `node[j]`.
 
 Cycling through all values for indices k, i, & j fills the matrix with the shortest path between each node pair. It is possible to reconstruct the list of nodes visited in the shortest path. The methods `fwa_traced` and `fwa_ut` provide that.
 
-Note that for an undirected graph the distance from `node[i]` to `node [j]` equals the distance from `node[j]` to `node[i] `. The matrix is symmetric about the diagonal from `dist[0][0]` to `dist[n-1][n-1]` which allows additional optimization. The methods `fwa_undirected` and `fwa_ut` provide that.
+Note that for an undirected graph the distance from `node[i]` to `node [j]` equals the distance from `node[j]` to `node[i] `. The matrix is symmetric about the diagonal from `dist[0][0]` to `dist[n-1][n-1]` which allows additional optimization. The method `fwa_undirected` provides that. Path reconstruction (trace) does not work properly with the undirected graph optimization. Do not know why.
 
 [Wikipedia reference.](https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm)
 

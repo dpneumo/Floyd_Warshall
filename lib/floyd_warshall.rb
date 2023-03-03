@@ -50,21 +50,6 @@ class FloydWarshall
     @dist
   end
 
-  def fwa_ut
-    fwa_setup
-    nsize.times do |k|
-      nsize.times do |i|
-        i.times do |j|
-          if @dist[i][j] > @dist[i][k] + @dist[k][j]
-            @dist[i][j] = @dist[j][i] = @dist[i][k] + @dist[k][j]
-            @nxt[i][j]  = @nxt[j][i]  = @nxt[i][k]
-          end
-        end
-      end
-    end
-    @dist
-  end
-
   def path(u, v)
     return [] if @nxt[u][v] == nil
     path = [u]
@@ -91,6 +76,8 @@ private
       @dist[v][v] = 0
       @nxt[v][v]  = v
     end
+    puts "\n@nxt"
+    @nxt.each {|row| puts "#{row}" }
   end
 
   def nsize; @nsize ||= @nodes.size; end

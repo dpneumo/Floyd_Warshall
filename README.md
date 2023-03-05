@@ -19,9 +19,11 @@ k is the index of a possible intermediate step in the path from node[i] to node[
     then dist[i][j] = dist[i][k] + dist [k][j]
 which improves the distance estimate for the path from `node[i]` to `node[j]`.
 
-Cycling through all values for indices k, i, & j fills the matrix with the shortest path between each node pair. It is possible to reconstruct the list of nodes visited in the shortest path. The methods `fwa_traced` and `fwa_ut` provide that.
+Cycling through all values for indices k, i, & j fills the matrix with the shortest path between each node pair. It is possible to reconstruct the list of nodes visited in the shortest path. The method `fwa_traced` provides that.
 
-Note that for an undirected graph the distance from `node[i]` to `node [j]` equals the distance from `node[j]` to `node[i] `. The matrix is symmetric about the diagonal from `dist[0][0]` to `dist[n-1][n-1]` which allows additional optimization. The method `fwa_undirected` provides that. Path reconstruction (trace) does not work properly with the undirected graph optimization. Do not know why.
+Note that for an undirected graph the distance from `node[i]` to `node [j]` equals the distance from `node[j]` to `node[i] `. The matrix is symmetric about the diagonal from `dist[0][0]` to `dist[n-1][n-1]` which allows additional optimization. The method `fwa_undirected` provides that.
+
+Path reconstruction (trace) does not work with the undirected graph optimization. Path reconstruction recovers the lowest cost path from A to B: A -> X -> Y -> B. That is not the same as the path B to A: B -> Y -> X -> A. The nxt matrix is NOT symmetric about the diagonal.
 
 [Wikipedia reference.](https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm)
 

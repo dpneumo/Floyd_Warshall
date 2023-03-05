@@ -1,7 +1,10 @@
 
 # Floyd_Warshall Algorithm
 
-**Background:**
+**Motivation**
+I recently found [Advent of Code](https://adventofcode.com/). While working through the puzzles I needed to use various algorithms for solving various aspects of the puzzles. Algorithms for which I had never written code nor, in many instances, had more than a minimal understanding of the logic behind the algorithm. I love Ruby for allowing me to express ideas in code without a lot of cruft unrelated to the underlying ideas. I use the coding process to gain understanding of the algorithm's logic. I will publish the results of my exercises here in the hope of being useful to my future self and to others.
+
+**Background**
 
 *Floyd-Warshall* is a recursive algorithm for finding the shortest path, if one exists, between each pair of nodes on a weighted graph. The graph can be directed or non-directed but must not have negative cycles. That is, the sum of the edge distances (weights) in a cycle must not be negative.
 
